@@ -16,7 +16,13 @@ public class User
         this.password = password;
         this.privacy = privacy;
     }
-
+    public User(UserBuilder builder) {
+        this.id = UUID.randomUUID();
+        this.name = builder.getName();
+        this.email = builder.getEmail();
+        this.password = builder.getPassword();
+        this.privacy = builder.getPrivacySetting();
+    }
 
     public String getName()
         {

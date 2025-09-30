@@ -1,29 +1,36 @@
 package controller;
+
 import java.util.List;
 import java.util.UUID;
 import java.util.ArrayList;
 import java.util.Set;
-import model.Post;
-import model.TextPost;
-import model.ImagePost;
-import model.VideoPost;
-import model.User;
+
+import model.*;
 
 public class PostController {
     List<Post> posts;
     private NotificationController notificationController;
     private UserController userController;
+    private static PostController instance;
+
+    // NOTE: Singleton
+    public static PostController getInstance() {
+        if (instance == null) {
+            return instance = new PostController();
+        }
+        return instance;
+    }
 
     public PostController() {
         posts = new ArrayList<>();
         this.notificationController = null; // Será definido posteriormente
         this.userController = null; // Será definido posteriormente
     }
-    
+
     public void setNotificationController(NotificationController notificationController) {
         this.notificationController = notificationController;
     }
-    
+
     public void setUserController(UserController userController) {
         this.userController = userController;
     }
@@ -46,30 +53,21 @@ public class PostController {
         return post;
     }
 
+    //NOTE: Factory Method implementation
     public Post createPost(UUID userId, String content, String postType) {
-        Post post;
-        switch (postType.toUpperCase()) {
-            case "TEXT":
-                post = new TextPost(userId, content);
-                break;
-            case "IMAGE":
-
-                post = new ImagePost(userId, content, "Imagem compartilhada");
-                break;
-            case "VIDEO":
-
-                post = new VideoPost(userId, content, "Vídeo compartilhado", 0);
-                break;
-            default:
-                post = new TextPost(userId, content);
-        }
+        Post post = switch (postType.toUpperCase()) {
+            case "IMAGE" -> PostFactory.createPost(postType, userId, content, "Imagem compartilhada");
+            case "VIDEO" -> PostFactory.createPost(postType, userId, content, "Vídeo compartilhado", 0);
+            default -> PostFactory.createPost(postType, userId, content);
+        };
         posts.add(post);
         return post;
     }
 
     public boolean editPost(UUID postId, String newContent, String newPostType) {
         Post post = findPostById(postId);
-        if (post == null) return false;
+        if (post == null)
+            return false;
 
         posts.remove(post);
 
@@ -125,23 +123,25 @@ public class PostController {
 
     public boolean likePost(UUID postId, UUID userId) {
         Post post = findPostById(postId);
-        if (post == null) return false;
-        
+        if (post == null)
+            return false;
+
         boolean liked = post.like(userId);
 
-        if (liked && notificationController != null && userController != null && 
-            !post.getUserId().equals(userId)) {
+        if (liked && notificationController != null && userController != null &&
+                !post.getUserId().equals(userId)) {
             User liker = userController.getUserById(userId);
             String likerName = liker != null ? liker.getName() : "Usuário Desconhecido";
             notificationController.createPostLikeNotification(post.getUserId(), likerName, postId);
         }
-        
+
         return liked;
     }
 
     public boolean unlikePost(UUID postId, UUID userId) {
         Post post = findPostById(postId);
-        if (post == null) return false;
+        if (post == null)
+            return false;
         return post.unlike(userId);
     }
 

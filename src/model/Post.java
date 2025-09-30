@@ -1,4 +1,5 @@
 package model;
+
 import java.util.UUID;
 import java.time.LocalDateTime;
 import java.util.Set;
@@ -13,23 +14,24 @@ public abstract class Post extends Content {
     }
 
     public abstract String getPostType();
+
     public abstract String getDisplayContent();
-    
+
     @Override
     public String getContentType() {
         return "POST_" + getPostType();
     }
-    
+
     @Override
     public String getFormattedContent() {
         return getDisplayContent();
     }
-    
+
     @Override
     public boolean isValid() {
         return getContent() != null && !getContent().trim().isEmpty();
     }
-    
+
     @Override
     public int getContentSize() {
         return getContent() != null ? getContent().length() : 0;
@@ -40,11 +42,11 @@ public abstract class Post extends Content {
     }
 
     public boolean like(UUID userId) {
-        return likes.add(userId); 
+        return likes.add(userId);
     }
 
     public boolean unlike(UUID userId) {
-        return likes.remove(userId); 
+        return likes.remove(userId);
     }
 
     public int getLikeCount() {
