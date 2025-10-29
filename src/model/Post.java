@@ -5,6 +5,7 @@ import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.HashSet;
 
+// NOTE: Template Method Pattern
 public abstract class Post extends Content {
     private Set<UUID> likes;
 

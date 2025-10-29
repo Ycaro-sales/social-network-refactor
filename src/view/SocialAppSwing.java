@@ -126,7 +126,6 @@ public class SocialAppSwing {
         friendRequestController.setNotificationController(notificationController);
         friendController = new FriendController(friendRequestController);
 
-        // NOTE: Singleton
         postController = PostController.getInstance();
 
         postController.setNotificationController(notificationController);
@@ -155,6 +154,7 @@ public class SocialAppSwing {
         friendController.acceptRequest(maria.getId(), joao.getId());
         friendController.acceptRequest(pedro.getId(), joao.getId());
 
+        // NOTE: Facade Pattern Call
         postController.createTextPost(joao.getId(),
                 "Acabei de fazer um passeio incrível de bicicleta pela cidade! 🚴‍♂️");
         postController.createTextPost(maria.getId(), "Dia lindo para pedalar! Quem mais gosta de mountain bike? 🏔️");
@@ -3035,6 +3035,7 @@ public class SocialAppSwing {
                         group.getName(),
                         group.getDescription(),
                         group.getPrivacy(),
+                        // NOTE: Composite Pattern Call
                         group.getMemberCount());
                 model.addElement(display);
             }

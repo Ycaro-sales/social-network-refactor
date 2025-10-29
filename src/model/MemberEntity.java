@@ -5,6 +5,7 @@ import java.util.UUID;
 import java.util.Set;
 import java.util.HashSet;
 
+// NOTE: Composite Pattern
 public abstract class MemberEntity {
     protected UUID id;
     protected String name;
@@ -20,14 +21,18 @@ public abstract class MemberEntity {
         this.ownerId = ownerId;
         this.createdAt = LocalDateTime.now();
         this.members = new HashSet<>();
-        
+
         this.members.add(ownerId);
     }
 
     public abstract boolean addMember(UUID userId);
+
     public abstract boolean removeMember(UUID userId);
+
     public abstract boolean canAddMember(UUID userId);
+
     public abstract String getEntityType();
+
     public abstract String getEntityInfo();
 
     public UUID getId() {
@@ -85,7 +90,7 @@ public abstract class MemberEntity {
     public String getRelativeTime() {
         LocalDateTime now = LocalDateTime.now();
         long minutes = java.time.Duration.between(createdAt, now).toMinutes();
-        
+
         if (minutes < 1) {
             return "Agora mesmo";
         } else if (minutes < 60) {
@@ -105,20 +110,22 @@ public abstract class MemberEntity {
     }
 
     public String getSummary() {
-        return String.format("%s: %s (%d membros)", 
-            getEntityType(), name, getMemberCount());
+        return String.format("%s: %s (%d membros)",
+                getEntityType(), name, getMemberCount());
     }
 
     @Override
     public String toString() {
-        return String.format("[%s] %s: %s - %d membros (%s)", 
-            getEntityType(), name, description, getMemberCount(), getFormattedDate());
+        return String.format("[%s] %s: %s - %d membros (%s)",
+                getEntityType(), name, description, getMemberCount(), getFormattedDate());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
         MemberEntity entity = (MemberEntity) obj;
         return id.equals(entity.id);
     }

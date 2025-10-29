@@ -2,6 +2,7 @@ package model;
 
 import java.util.UUID;
 
+//NOTE: Decorator Pattern Implementation
 public class VideoPost extends Post {
     private String videoUrl;
     private String description;
@@ -13,7 +14,7 @@ public class VideoPost extends Post {
         this.description = description;
         this.duration = duration;
     }
-    
+
     private static String formatDurationStatic(int seconds) {
         int minutes = seconds / 60;
         int remainingSeconds = seconds % 60;

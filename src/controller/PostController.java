@@ -7,13 +7,13 @@ import java.util.Set;
 
 import model.*;
 
+// NOTE: Facade Pattern Implementation
 public class PostController {
     List<Post> posts;
     private NotificationController notificationController;
     private UserController userController;
     private static PostController instance;
 
-    // NOTE: Singleton
     public static PostController getInstance() {
         if (instance == null) {
             return instance = new PostController();
@@ -47,13 +47,13 @@ public class PostController {
         return post;
     }
 
+    // NOTE: Decorator Pattern Call
     public Post createVideoPost(UUID userId, String videoUrl, String description, int duration) {
         Post post = new VideoPost(userId, videoUrl, description, duration);
         posts.add(post);
         return post;
     }
 
-    //NOTE: Factory Method implementation
     public Post createPost(UUID userId, String content, String postType) {
         Post post = switch (postType.toUpperCase()) {
             case "IMAGE" -> PostFactory.createPost(postType, userId, content, "Imagem compartilhada");

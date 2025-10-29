@@ -7,6 +7,7 @@ import model.Privacy;
 import model.User;
 import model.UserBuilder;
 
+// Note: Command Pattern
 public class UserController {
     private List<User> users;
 
@@ -14,8 +15,6 @@ public class UserController {
         this.users = new ArrayList<>();
     }
 
-    // NOTE: Factory
-    // NOTE: Builder
     public User createUser(String name, String email, String password, Privacy privacy) {
         User user = new UserBuilder()
                 .setName(name)

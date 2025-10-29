@@ -14,6 +14,24 @@ Sistema completo de rede social desenvolvido em Java seguindo os princípios da 
 - **Feed de Posts**: Visualização de posts dos amigos
 - **Interface Gráfica**: Interface Swing moderna e intuitiva
 
+## Padroes de Projeto Implementados
+
+# Criacionais
+- Factory Method pattern
+- Builder pattern
+- Singleton pattern
+ 
+# Comportamentais
+- Observer pattern
+- State Pattern
+- Template Method pattern
+
+# Estruturais
+- Facade pattern
+- Decorator pattern
+- Composite pattern [WIP]
+
+
 ## Estrutura do Projeto
 
 ```

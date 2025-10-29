@@ -17,8 +17,11 @@ public abstract class Content {
     }
 
     public abstract String getContentType();
+
     public abstract String getFormattedContent();
+
     public abstract boolean isValid();
+
     public abstract int getContentSize();
 
     public UUID getId() {
@@ -48,7 +51,7 @@ public abstract class Content {
     public String getRelativeTime() {
         LocalDateTime now = LocalDateTime.now();
         long minutes = java.time.Duration.between(createdAt, now).toMinutes();
-        
+
         if (minutes < 1) {
             return "Agora mesmo";
         } else if (minutes < 60) {
@@ -74,16 +77,18 @@ public abstract class Content {
 
     @Override
     public String toString() {
-        return String.format("[%s] %s: %s", 
-            getContentType(), 
-            getFormattedDate(), 
-            getFormattedContent());
+        return String.format("[%s] %s: %s",
+                getContentType(),
+                getFormattedDate(),
+                getFormattedContent());
     }
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
         Content content = (Content) obj;
         return id.equals(content.id);
     }

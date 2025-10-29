@@ -2,7 +2,6 @@ package model;
 
 import java.util.UUID;
 
-//NOTE: Factory Method
 public class PostFactory {
     public static Post createPost(String postType, UUID userId, String content, Object... additionalParams) {
         switch (postType.toUpperCase()) {

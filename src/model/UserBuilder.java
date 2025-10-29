@@ -2,7 +2,6 @@ package model;
 
 import java.time.LocalDateTime;
 
-// NOTE: Builder
 public class UserBuilder {
     private String name;
     private String email;
@@ -13,6 +12,7 @@ public class UserBuilder {
         this.name = name;
         return this;
     }
+
     public String getName() {
         return name;
     }
@@ -21,6 +21,7 @@ public class UserBuilder {
         this.email = email;
         return this;
     }
+
     public String getEmail() {
         return email;
     }
@@ -29,6 +30,7 @@ public class UserBuilder {
         this.password = password;
         return this;
     }
+
     public String getPassword() {
         return password;
     }
@@ -37,6 +39,7 @@ public class UserBuilder {
         this.privacySetting = privacy;
         return this;
     }
+
     public Privacy getPrivacySetting() {
         return privacySetting;
     }
