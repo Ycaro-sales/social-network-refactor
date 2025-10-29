@@ -18,13 +18,25 @@ Sistema completo de rede social desenvolvido em Java seguindo os princípios da 
 
 # Criacionais
 - Factory Method pattern
+    - Implementation:  src/model/PostFactory.java
+    - Call: src/controller/PostController.java:57
 - Builder pattern
+    - Implementation:  src/model/UserBuilder.java
+    - Call: src/controller/UserController.java:4
 - Singleton pattern
+    - Implementation:  src/controller/FriendRequestController.java:41
+    - Call: src/controller/NotificationController.java:8
  
 # Comportamentais
 - Observer pattern
+    - Implementation:  src/controller/FriendRequestController.java:41
+    - Call: src/controller/NotificationController.java:8
 - State Pattern
+    - Implementation:  src/controller/FriendRequestController.java:41
+    - Call: src/controller/NotificationController.java:8
 - Template Method pattern
+    - Implementation:  src/controller/FriendRequestController.java:41
+    - Call: src/controller/NotificationController.java:8
 
 # Estruturais
 - Facade pattern
