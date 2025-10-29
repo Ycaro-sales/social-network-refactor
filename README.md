@@ -25,22 +25,26 @@ Sistema completo de rede social desenvolvido em Java seguindo os princípios da 
     - Call: src/controller/UserController.java:4
 - Singleton pattern
     - Implementation:  src/controller/FriendRequestController.java:41
-    - Call: src/controller/NotificationController.java:8
+    - Call: src/view/SocialAppSwing.java:129
  
 # Comportamentais
 - Observer pattern
     - Implementation:  src/controller/FriendRequestController.java:41
     - Call: src/controller/NotificationController.java:8
 - State Pattern
-    - Implementation:  src/controller/FriendRequestController.java:41
-    - Call: src/controller/NotificationController.java:8
+    - Implementation:  src/model/FriendRequest.java:41
+    - Call: src/controller/FriendRequestController.java:51
 - Template Method pattern
-    - Implementation:  src/controller/FriendRequestController.java:41
-    - Call: src/controller/NotificationController.java:8
+    - Implementation:  src/model/Post.java:41
+    - Call: src/model/VideoPost.java:11
 
 # Estruturais
 - Facade pattern
+    - Implementation: src/controller/PostController.java
+    - Call: src/view/SocialAppSwing.java:157
 - Decorator pattern
+    - Implementation: src/model/VideoPost.java
+    - Call: src/controller/PostController.java:50
 - Composite pattern [WIP]
 
 
