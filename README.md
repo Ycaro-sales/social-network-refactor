@@ -18,34 +18,96 @@ Sistema completo de rede social desenvolvido em Java seguindo os princípios da 
 
 # Criacionais
 - Factory Method pattern
-    - Implementation:  src/model/PostFactory.java
-    - Call: src/controller/PostController.java:57
+    - Implementação:  
+        Arquivo: ./src/model/PostFactory.java
+        Classe: PostFactory
+    - Chamada: 
+        Arquivo: ./src/controller/PostController.java:57
+        Classe: PostController
+        Método: createPost
 - Builder pattern
-    - Implementation:  src/model/UserBuilder.java
-    - Call: src/controller/UserController.java:4
+    - Implementação:  
+        Arquivo: ./src/model/UserBuilder.java
+        Classe: UserBuilder
+    - Chamada: 
+        Arquivo: ./src/controller/UserController.java:4
+        Classe: UserController 
+        Método: UserController.createUser
 - Singleton pattern
-    - Implementation:  src/controller/FriendRequestController.java:41
-    - Call: src/view/SocialAppSwing.java:129
+    - Implj
+        Arquivo: ./src/controller/FriendRequestController.java:41
+        Classe: FriendRequestController
+        Método: sendFriendRequest
+
+
+    - Chamada: 
+        Arquivo: ./src/view/SocialAppSwing.java:129
+        Classe: SocialAppSwing
+        Método: SocialAppSwing(constructor)
  
 # Comportamentais
 - Observer pattern
-    - Implementation:  src/controller/FriendRequestController.java:41
-    - Call: src/controller/NotificationController.java:8
+    - Implementação: 
+        Arquivo: ./src/controller/NotificationController.java:8
+        Classe: NotificationController
+    - Chamada:  
+        Arquivo: ./src/controller/FriendRequestController.java:41
+        Classe: FriendRequestController
+        Método: sendFriendRequest
 - State Pattern
-    - Implementation:  src/model/FriendRequest.java:41
-    - Call: src/controller/FriendRequestController.java:51
+    - Implementação:  
+        Arquivo: ./src/model/FriendRequest.java:41
+        Classe: FriendRequest
+    - Chamada: 
+        Arquivo: ./src/controller/FriendRequestController.java:51
+        Classe: FriendRequestController
+        Método: acceptRequest
+
 - Template Method pattern
-    - Implementation:  src/model/Post.java:41
-    - Call: src/model/VideoPost.java:11
+    - Implementação:
+        Arquivo: ./src/model/Post.java:41
+        Classe: Post
+    - Chamada: 
+        Arquivo: ./src/model/VideoPost.java:11
+        Classe: VideoPost
 
 # Estruturais
 - Facade pattern
-    - Implementation: src/controller/PostController.java
-    - Call: src/view/SocialAppSwing.java:157
+    - Implementação: 
+        Arquivo: ./src/controller/PostController.java
+        Classe: PostController
+    - Chamada: 
+        Arquivo: ./src/view/SocialAppSwing.java:157
+        Classe: SocialAppSwing
 - Decorator pattern
-    - Implementation: src/model/VideoPost.java
-    - Call: src/controller/PostController.java:50
-- Composite pattern [WIP]
+    - Implementação: 
+        Arquivo: ./src/model/VideoPost.java
+        Classe: VideoPost
+    - Chamada: 
+        Arquivo: ./src/controller/PostController.java:50
+        Classe: PostController
+        Método: createVideoPost
+- Composite pattern
+    - Implementação
+        Arquivo: ./src/model/MemberEntity.java
+        Classe MemberEntity
+    - Chamada:
+        Arquivo: ./src/controller/GroupController.java
+        Classe GroupController
+        Método: addMember
+
+## Exceções
+
+Arquivo: ./src/view/SocialAppSwing.java
+linha 100(Genérico): Lidando com possiveis erros configurando as fontes da UI e Mostrando o erro para o Usuário em uma caixa de dialogo
+linha 1510(Genérico): Lidando com possiveis erros ao criar grupos e Mostrando o erro para o Usuário em uma caixa de dialogo
+linha 1976(Genérico): Lidando com possiveis erros ao enviar mensagens para grupos e Mostrando o erro para o Usuário em uma caixa de dialogo
+linha 2181(Genérico): Lidando com possiveis erros ao criar eventos e Mostrando o erro para o Usuário em uma caixa de dialogo
+linha 2559(Genérico): Lidando com possiveis erros ao enviar mensagens para outros usuarios e Mostrando o erro para o Usuário em uma caixa de dialogo
+linha 2750(Formatação): Lidando com erros de formatação de input de datas do usuário e Mostrando o erro para o Usuário em uma caixa de dialogo
+linha 2914(Generico):  Lidando com possiveis erros ao atualizar eventos e Mostrando o erro para o Usuário em uma caixa de dialogo
+
+
 
 
 ## Estrutura do Projeto
